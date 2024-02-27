@@ -2,7 +2,9 @@
   "name": "web-audio-on-server",
   "scripts": {
     "build": "bun run ./scripts/build.ts",
-    "render": "bun run ./scripts/render.ts"
+    "render": "bun run ./scripts/render.ts",
+    "test:format": "prettier --check .",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "playwright": "1.41.2"
@@ -10,6 +12,7 @@
   "devDependencies": {
     "@types/bun": "1.0.8",
     "bun-plugin-html": "2.0.0",
+    "prettier": "3.2.5",
     "typescript": "5.3.3"
   }
 }

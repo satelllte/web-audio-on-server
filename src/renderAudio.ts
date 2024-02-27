@@ -1,11 +1,7 @@
 export const renderAudio = async (): Promise<AudioBuffer> => {
   const sampleRate = 44100;
   const duration = 2;
-  const context = new OfflineAudioContext(
-    2,
-    sampleRate * duration,
-    sampleRate,
-  );
+  const context = new OfflineAudioContext(2, sampleRate * duration, sampleRate);
   const now = context.currentTime;
 
   const oscillator = new OscillatorNode(context, {
