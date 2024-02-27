@@ -3,6 +3,7 @@
   "scripts": {
     "build": "bun run ./scripts/build.ts",
     "render": "bun run ./scripts/render.ts",
+    "test:types": "tsc",
     "test:format": "prettier --check .",
     "format": "prettier --write ."
   },
