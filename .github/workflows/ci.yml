@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ci-render:
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+      - name: Bun version
+        run: bun --version
+      - name: Node version
+        run: node --version
+      - name: Install Bun dependencies
+        run: bun install --frozen-lockfile
+      - name: Test (types)
+        run: bun run test:types
+      - name: Test (formatting)
+        run: bun run test:format
+      - name: Build
+        run: bun run build
+      - name: Playwright version
+        run: bunx playwright --version
+      - name: Install Playwright browsers
+        run: bunx playwright install --with-deps
+      - name: Render
+        run: bun run render
+      - name: Upload playwright-downloads artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-downloads
+          path: ./playwright-downloads
