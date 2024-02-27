@@ -23,7 +23,5 @@ export const renderAudio = async (): Promise<AudioBuffer> => {
   };
 
   const buffer = await context.startRendering();
-  console.debug('buffer: ', buffer);
-
   return buffer;
 };
