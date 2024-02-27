@@ -1,8 +1,7 @@
-import {chromium} from 'playwright'
-import path from 'node:path'
+import { audioBufferToWavBlob } from './audioBufferToWavBlob';
+import { downloadBlob } from './downloadBlob';
+import {renderAudio} from './renderAudio'
 
-const browser = await chromium.launch({headless: false});
-const page = await browser.newPage();
-const url = `file://${path.resolve(import.meta.dirname, './index.html')}`;
-await page.goto(url);
-await browser.close();
+const buffer = await renderAudio();
+const wavBlob = await audioBufferToWavBlob(buffer);
+downloadBlob(wavBlob, 'audio.wav');

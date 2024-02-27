@@ -1,13 +1,15 @@
 {
   "name": "web-audio-on-server",
   "scripts": {
-    "start": "bun run ./src/index.ts"
+    "build": "bun run ./scripts/build.ts",
+    "render": "bun run ./scripts/render.ts"
   },
   "dependencies": {
     "playwright": "1.41.2"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "typescript": "^5.3.3"
+    "@types/bun": "1.0.8",
+    "bun-plugin-html": "2.0.0",
+    "typescript": "5.3.3"
   }
 }
