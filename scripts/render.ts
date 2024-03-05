@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const browser = await chromium.launch({
   headless: true,
-  args: ['--disable-web-security'], // Required to bypass CORS issues on file:// protoco;
+  args: ['--disable-web-security'], // Required to bypass CORS issues on file:// protocol
 });
 const page = await browser.newPage();
 const url = `file://${path.resolve(import.meta.dirname, '../dist/index.html')}`;
